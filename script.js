@@ -1,5 +1,3 @@
-// script.js
-
 // Karten-Daten 
 const cardSymbols = ['🍎', '🍌', '🍓', '🍇', '🍍', '🥝', '🍉', '🍒'];
 let cards = [...cardSymbols, ...cardSymbols]; // Doppelte Symbole für Paare
@@ -109,6 +107,23 @@ function checkMatch() {
       setTimeout(() => alert(`Herzlichen Glückwunsch! Du hast das Spiel in ${moves} Zügen und ${timeElapsed} Sekunden beendet.`), 500);
     }
   } else {
+    
+    // Kein Paar - Karte rot färben und schütteln
+    card1.style.backgroundColor = 'red';
+    card2.style.backgroundColor = 'red';
+
+    // Schüttel-Animation hinzufügen
+    card1.style.animation = 'shake 0.5s';
+    card2.style.animation = 'shake 0.5s';
+
+    // Nach 500ms Animation und Farbe zurücksetzen
+    setTimeout(() => {
+      card1.style.backgroundColor = '';
+      card2.style.backgroundColor = '';
+      card1.style.animation = '';
+      card2.style.animation = '';
+    }, 500);
+    
     // Kein Paar - Karten zurückdrehen
     setTimeout(() => {
       card1.classList.remove('flipped');
