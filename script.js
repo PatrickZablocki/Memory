@@ -14,6 +14,7 @@ const cardGrid = document.querySelector('.card-grid');
 const timerDisplay = document.getElementById('timer');
 const scoreDisplay = document.getElementById('score');
 const restartBtn = document.getElementById('restart-btn');
+const bestScoreDisplay = document.getElementById('best-score');
 
 // Timer starten
 function startTimer() {
@@ -37,9 +38,33 @@ function shuffle(array) {
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
+// Highscore speichern & anzeigen
+function updateHighscore() {
+  const bestTime = parseInt(localStorage.getItem('bestTime')) || Infinity;
+  const bestMoves = parseInt(localStorage.getItem('bestMoves')) || Infinity;
+
+  if (timeElapsed < bestTime) {
+    localStorage.setItem('bestTime', timeElapsed);
+  }
+  if (moves < bestMoves) {
+    localStorage.setItem('bestMoves', moves);
+  }
+  bestScoreDisplay.textContent =
+    `Beste Zeit: ${localStorage.getItem('bestTime')}s | Wenigste Züge: ${localStorage.getItem('bestMoves')}`;
+}
+// Highscore beim Start laden
+function loadHighscore() {
+  const bestTime = localStorage.getItem('bestTime') || '__';
+  const bestMoves = localStorage.getItem('bestMoves') || '__';
+  bestScoreDisplay.textContent =
+    `Beste Zeit: ${bestTime}s | Wenigste Züge: ${bestMoves}`;
+}
 
 // Spielfeld initialisieren
 function initializeGame() {
+  // Neue Karteliste erstellen & mischen 
+let cards = [...cardSymbols, ...cardSymbols];
+shuffle(cards);
   // Zurücksetzen
   cardGrid.innerHTML = '';
   flippedCards = [];
@@ -49,6 +74,8 @@ function initializeGame() {
   stopTimer();
   timerDisplay.textContent = 'Zeit: 00:00';
   scoreDisplay.textContent = 'Züge: 0';
+
+  loadHighscore(); // Highscore anzeigen
 
   // Karten mischen
   shuffle(cards);
