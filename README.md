@@ -12,6 +12,7 @@ Ein klassisches Memory-Spiel, das mit **JavaScript**, **HTML** und **CSS** entwi
 ## Features in Planung
 - Bei Falschem Paar soll es Rot angezeigt werden.
 - 1 vs 1 Modus
+- Highscore in bearbeitung 
 
 ## Technologien
 - **HTML**: Struktur der Webseite und Karten.
@@ -29,3 +30,5 @@ Ein klassisches Memory-Spiel, das mit **JavaScript**, **HTML** und **CSS** entwi
 
 Zurzeit habe ich das Problem das ich die Karte die ich anklicke nicht aufplopt,
 sondern die untere somit verschiebt sich alles um 1 das muss gefixed werden.
+
+
