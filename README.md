@@ -13,6 +13,7 @@ Ein klassisches Memory-Spiel, das mit **JavaScript**, **HTML** und **CSS** entwi
 - Bei Falschem Paar soll es Rot angezeigt werden.
 - 1 vs 1 Modus
 - Highscore in bearbeitung 
+- Neue Ideen in das Spiel einbringen Hauptmenu z.B
 
 ## Technologien
 - **HTML**: Struktur der Webseite und Karten.
